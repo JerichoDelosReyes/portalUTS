@@ -9,15 +9,24 @@ portalCards.forEach(card => {
     card.addEventListener('mousedown', createRipple);
 });
 
-// Handle card click with black hole animation
+// Handle card click with black hole animation and themed effects
 function handleCardClick(e) {
     const card = e.currentTarget;
     const target = card.dataset.target;
     
     // Check if it's the "coming soon" card
     if (card.querySelector('.card-status.coming-soon')) {
+        // Show caring effects for the coming soon card
+        showCaringEffects();
         showComingSoonMessage();
         return;
+    }
+    
+    // Show themed effects based on target
+    if (target === 'digital-self') {
+        showDigitalEffects();
+    } else if (target === 'managing-caring') {
+        showCaringEffects();
     }
     
     // Create black hole vortex effect
@@ -35,6 +44,407 @@ function handleCardClick(e) {
     setTimeout(() => {
         navigateToProject(target);
     }, 2000);
+}
+
+// Show digital effects
+function showDigitalEffects() {
+    const digitalEffects = document.querySelector('.digital-effects');
+    digitalEffects.classList.add('active');
+    
+    // Create additional binary elements dynamically
+    createBinaryElements();
+    
+    // Create network connections
+    createNetworkConnections();
+    
+    // Hide effects after animation
+    setTimeout(() => {
+        digitalEffects.classList.remove('active');
+    }, 3000);
+}
+
+// Show caring effects
+function showCaringEffects() {
+    const caringEffects = document.querySelector('.caring-effects');
+    caringEffects.classList.add('active');
+    
+    // Create additional heart elements dynamically
+    createHeartElements();
+    
+    // Hide effects after animation
+    setTimeout(() => {
+        caringEffects.classList.remove('active');
+    }, 3000);
+}
+
+// Create dynamic binary elements for digital effect
+function createBinaryElements() {
+    const digitalParticles = document.querySelector('.digital-particles');
+    
+    // Create multiple binary particles
+    for (let i = 0; i < 8; i++) {
+        const binaryElement = document.createElement('div');
+        binaryElement.className = 'dynamic-binary';
+        binaryElement.textContent = Math.random() > 0.5 ? '1' : '0';
+        binaryElement.style.cssText = `
+            position: absolute;
+            top: ${Math.random() * 100}%;
+            left: ${Math.random() * 100}%;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: ${12 + Math.random() * 8}px;
+            opacity: 0.8;
+            animation: binaryFloat 2s ease-out forwards;
+            pointer-events: none;
+        `;
+        
+        digitalParticles.appendChild(binaryElement);
+        
+        // Remove element after animation
+        setTimeout(() => {
+            if (digitalParticles.contains(binaryElement)) {
+                digitalParticles.removeChild(binaryElement);
+            }
+        }, 2000);
+    }
+    
+    // Create digital nodes
+    createDigitalNodes();
+    
+    // Create scan lines
+    createScanLines();
+    
+    // Create holographic text
+    createHolographicText();
+    
+    // Add binary float animation
+    if (!document.querySelector('#binary-float-style')) {
+        const style = document.createElement('style');
+        style.id = 'binary-float-style';
+        style.textContent = `
+            @keyframes binaryFloat {
+                0% {
+                    transform: translateY(0px) scale(1);
+                    opacity: 0;
+                }
+                25% {
+                    opacity: 0.8;
+                }
+                75% {
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: translateY(-100px) scale(0.5);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Create digital nodes
+function createDigitalNodes() {
+    const digitalParticles = document.querySelector('.digital-particles');
+    
+    for (let i = 0; i < 6; i++) {
+        const node = document.createElement('div');
+        node.className = 'digital-node';
+        node.style.cssText = `
+            position: absolute;
+            top: ${Math.random() * 100}%;
+            left: ${Math.random() * 100}%;
+            width: 8px;
+            height: 8px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00ffff;
+            animation: nodeGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        `;
+        
+        digitalParticles.appendChild(node);
+        
+        setTimeout(() => {
+            if (digitalParticles.contains(node)) {
+                digitalParticles.removeChild(node);
+            }
+        }, 3000);
+    }
+    
+    // Add node glow animation
+    if (!document.querySelector('#node-glow-style')) {
+        const style = document.createElement('style');
+        style.id = 'node-glow-style';
+        style.textContent = `
+            @keyframes nodeGlow {
+                0%, 100% {
+                    transform: scale(1);
+                    opacity: 0.6;
+                    box-shadow: 0 0 10px currentColor;
+                }
+                50% {
+                    transform: scale(1.5);
+                    opacity: 1;
+                    box-shadow: 0 0 30px currentColor;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Create scan lines
+function createScanLines() {
+    const digitalParticles = document.querySelector('.digital-particles');
+    
+    for (let i = 0; i < 3; i++) {
+        const scanLine = document.createElement('div');
+        scanLine.className = 'scan-line';
+        scanLine.style.cssText = `
+            position: absolute;
+            top: ${Math.random() * 100}%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0080, transparent);
+            animation: scanMove 2s linear infinite;
+            pointer-events: none;
+            opacity: 0.7;
+        `;
+        
+        digitalParticles.appendChild(scanLine);
+        
+        setTimeout(() => {
+            if (digitalParticles.contains(scanLine)) {
+                digitalParticles.removeChild(scanLine);
+            }
+        }, 2000);
+    }
+    
+    // Add scan move animation
+    if (!document.querySelector('#scan-move-style')) {
+        const style = document.createElement('style');
+        style.id = 'scan-move-style';
+        style.textContent = `
+            @keyframes scanMove {
+                0% {
+                    transform: translateY(0px);
+                    opacity: 0;
+                }
+                25% {
+                    opacity: 0.7;
+                }
+                75% {
+                    opacity: 0.7;
+                }
+                100% {
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Create holographic text
+function createHolographicText() {
+    const digitalParticles = document.querySelector('.digital-particles');
+    
+    const holoTexts = [
+        'NEURAL_LINK_ACTIVE',
+        'QUANTUM_SYNC',
+        'DIGITAL_CONSCIOUSNESS',
+        'CYBER_SPACE_ENTRY',
+        'MATRIX_LOADING...'
+    ];
+    
+    for (let i = 0; i < 3; i++) {
+        const holoText = document.createElement('div');
+        holoText.className = 'holographic-text';
+        holoText.textContent = holoTexts[Math.floor(Math.random() * holoTexts.length)];
+        holoText.style.cssText = `
+            position: absolute;
+            top: ${Math.random() * 100}%;
+            left: ${Math.random() * 100}%;
+            color: #00ff41;
+            font-family: 'Orbitron', sans-serif;
+            font-size: ${10 + Math.random() * 6}px;
+            font-weight: 600;
+            text-shadow: 0 0 10px currentColor;
+            animation: holoFlicker 2.5s ease-in-out infinite;
+            pointer-events: none;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+        `;
+        
+        digitalParticles.appendChild(holoText);
+        
+        setTimeout(() => {
+            if (digitalParticles.contains(holoText)) {
+                digitalParticles.removeChild(holoText);
+            }
+        }, 2500);
+    }
+    
+    // Add holographic flicker animation
+    if (!document.querySelector('#holo-flicker-style')) {
+        const style = document.createElement('style');
+        style.id = 'holo-flicker-style';
+        style.textContent = `
+            @keyframes holoFlicker {
+                0%, 100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+                10% {
+                    opacity: 0.8;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                20% {
+                    opacity: 0.3;
+                    transform: translate(-50%, -50%) scale(1.1);
+                }
+                30% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                80% {
+                    opacity: 0.9;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                90% {
+                    opacity: 0.2;
+                    transform: translate(-50%, -50%) scale(0.9);
+                }
+            }
+        `;        document.head.appendChild(style);
+    }
+}
+
+// Create network connections
+function createNetworkConnections() {
+    const digitalParticles = document.querySelector('.digital-particles');
+    
+    // Create connection lines between random points
+    for (let i = 0; i < 4; i++) {
+        const connection = document.createElement('div');
+        connection.className = 'network-connection';
+        
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        const endX = Math.random() * 100;
+        const endY = Math.random() * 100;
+        
+        const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+        const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
+        
+        connection.style.cssText = `
+            position: absolute;
+            top: ${startY}%;
+            left: ${startX}%;
+            width: ${length * 3}px;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #ff0080, #00ffff);
+            transform-origin: 0 50%;
+            transform: rotate(${angle}deg);
+            animation: connectionPulse 2s ease-in-out infinite;
+            pointer-events: none;
+            opacity: 0.6;
+        `;
+        
+        digitalParticles.appendChild(connection);
+        
+        setTimeout(() => {
+            if (digitalParticles.contains(connection)) {
+                digitalParticles.removeChild(connection);
+            }
+        }, 2000);
+    }
+    
+    // Add connection pulse animation
+    if (!document.querySelector('#connection-pulse-style')) {
+        const style = document.createElement('style');
+        style.id = 'connection-pulse-style';
+        style.textContent = `
+            @keyframes connectionPulse {
+                0%, 100% {
+                    opacity: 0.2;
+                    box-shadow: 0 0 5px currentColor;
+                }
+                50% {
+                    opacity: 0.8;
+                    box-shadow: 0 0 15px currentColor;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Create dynamic heart elements for caring effect
+function createHeartElements() {
+    const heartParticles = document.querySelector('.heart-particles');
+    
+    // Create multiple heart particles
+    const heartSymbols = ['♥', '💕', '💖', '✨', '🌸'];
+    
+    for (let i = 0; i < 6; i++) {
+        const heartElement = document.createElement('div');
+        heartElement.className = 'dynamic-heart';
+        heartElement.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heartElement.style.cssText = `
+            position: absolute;
+            top: ${Math.random() * 100}%;
+            left: ${Math.random() * 100}%;
+            color: ${['#ff6b9d', '#ff9a9e', '#ffc3a0', '#ffafbd'][Math.floor(Math.random() * 4)]};
+            font-size: ${16 + Math.random() * 12}px;
+            opacity: 0.8;
+            animation: heartRise 3s ease-out forwards;
+            pointer-events: none;
+            text-shadow: 0 0 10px currentColor;
+        `;
+        
+        heartParticles.appendChild(heartElement);
+        
+        // Remove element after animation
+        setTimeout(() => {
+            if (heartParticles.contains(heartElement)) {
+                heartParticles.removeChild(heartElement);
+            }
+        }, 3000);
+    }
+    
+    // Add heart rise animation
+    if (!document.querySelector('#heart-rise-style')) {
+        const style = document.createElement('style');
+        style.id = 'heart-rise-style';
+        style.textContent = `
+            @keyframes heartRise {
+                0% {
+                    transform: translateY(20px) scale(0.8) rotate(0deg);
+                    opacity: 0;
+                }
+                25% {
+                    opacity: 1;
+                    transform: translateY(0px) scale(1) rotate(5deg);
+                }
+                50% {
+                    transform: translateY(-20px) scale(1.1) rotate(-5deg);
+                }
+                75% {
+                    transform: translateY(-40px) scale(1) rotate(3deg);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: translateY(-80px) scale(0.6) rotate(0deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
 // Create black hole vortex effect

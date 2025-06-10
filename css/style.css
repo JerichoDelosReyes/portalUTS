@@ -543,6 +543,690 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* Digital Effects */
+.digital-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 500;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.digital-effects.active {
+    opacity: 1;
+}
+
+.binary-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(0, 255, 0, 0.1));
+    overflow: hidden;
+}
+
+.binary-rain::before {
+    content: '1010110010101100101011001010110010101100101011001010110010101100';
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 20px;
+    opacity: 0.7;
+    animation: binaryFall 3s linear infinite;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+@keyframes binaryFall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.digital-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.digital-particles::before,
+.digital-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00ffff;
+    border-radius: 50%;
+    animation: digitalFloat 4s ease-in-out infinite;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.digital-particles::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.digital-particles::after {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+@keyframes digitalFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-30px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.circuit-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, transparent 98%, rgba(0, 255, 255, 0.3) 100%),
+        linear-gradient(0deg, transparent 98%, rgba(0, 255, 255, 0.3) 100%);
+    background-size: 50px 50px;
+    animation: circuitPulse 2s ease-in-out infinite;
+}
+
+@keyframes circuitPulse {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 0, 255, 0.1) 25%, 
+        transparent 50%, 
+        rgba(0, 255, 255, 0.1) 75%, 
+        transparent 100%);
+    animation: glitchMove 1.5s ease-in-out infinite;
+}
+
+@keyframes glitchMove {
+    0%, 100% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+}
+
+/* Data Streams */
+.data-streams {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.data-streams::before,
+.data-streams::after {
+    content: '< DATA_STREAM_01 > [ UPLOADING... ] < /DATA_STREAM_01 >';
+    position: absolute;
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    white-space: nowrap;
+    animation: dataFlow 4s linear infinite;
+    opacity: 0.6;
+}
+
+.data-streams::before {
+    top: 25%;
+    left: -100%;
+    animation-delay: 0s;
+}
+
+.data-streams::after {
+    top: 75%;
+    left: -100%;
+    animation-delay: 2s;
+    content: '[ PROCESSING ] >> { NEURAL_NETWORK_ACTIVE } << [ COMPLETE ]';
+}
+
+@keyframes dataFlow {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100%));
+        opacity: 0;
+    }
+}
+
+/* Holographic Grid */
+.holographic-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, 0.05) 25%, rgba(0, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.05) 75%, rgba(0, 255, 255, 0.05) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, 0.05) 25%, rgba(0, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.05) 75%, rgba(0, 255, 255, 0.05) 76%, transparent 77%, transparent);
+    background-size: 75px 75px;
+    animation: gridShift 8s ease-in-out infinite;
+}
+
+@keyframes gridShift {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(10px, 5px);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-5px, 10px);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate(5px, -5px);
+        opacity: 0.5;
+    }
+}
+
+/* Neon Pulses */
+.neon-pulses {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.neon-pulses::before,
+.neon-pulses::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(0deg, 
+        transparent 0%, 
+        #ff0080 20%, 
+        #00ffff 50%, 
+        #ff0080 80%, 
+        transparent 100%);
+    animation: neonPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 20px currentColor;
+}
+
+.neon-pulses::before {
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.neon-pulses::after {
+    right: 20%;
+    animation-delay: 1.5s;
+    background: linear-gradient(0deg, 
+        transparent 0%, 
+        #00ff41 20%, 
+        #ff0080 50%, 
+        #00ff41 80%, 
+        transparent 100%);
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scaleY(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scaleY(1.2);
+    }
+}
+
+/* Matrix Code */
+.matrix-code {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+}
+
+.matrix-code::before {
+    content: 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    color: #00ff41;
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.4;
+    animation: matrixFall 6s linear infinite;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+@keyframes matrixFall {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(calc(100vh + 50px));
+        opacity: 0;
+    }
+}
+
+/* Cyber Hexagons */
+.cyber-hexagons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cyber-hexagons::before,
+.cyber-hexagons::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 34.64px;
+    background: transparent;
+    border: 2px solid #00ffff;
+    transform: rotate(30deg);
+    animation: hexFloat 5s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.cyber-hexagons::before {
+    top: 30%;
+    left: 25%;
+    animation-delay: 0s;
+    border-color: #ff0080;
+}
+
+.cyber-hexagons::after {
+    top: 60%;
+    right: 25%;
+    animation-delay: 2.5s;
+    border-color: #00ff41;
+}
+
+@keyframes hexFloat {
+    0%, 100% {
+        transform: rotate(30deg) translateY(0px);
+        opacity: 0.4;
+    }
+    25% {
+        transform: rotate(45deg) translateY(-15px);
+        opacity: 0.8;
+    }
+    50% {
+        transform: rotate(60deg) translateY(-10px);
+        opacity: 0.6;
+    }
+    75% {
+        transform: rotate(75deg) translateY(-20px);
+        opacity: 0.7;
+    }
+}
+
+/* Digital Waves */
+.digital-waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.digital-waves::before,
+.digital-waves::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #00ffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: digitalRipple 4s ease-out infinite;
+    opacity: 0;
+}
+
+.digital-waves::before {
+    animation-delay: 0s;
+    border-color: #00ff41;
+}
+
+.digital-waves::after {
+    animation-delay: 2s;
+    border-color: #ff0080;
+}
+
+@keyframes digitalRipple {
+    0% {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+    }
+    100% {
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}
+
+/* Terminal Lines */
+.terminal-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-lines::before,
+.terminal-lines::after {
+    content: '> SYSTEM_ACCESS_GRANTED\A> INITIALIZING_NEURAL_INTERFACE...\A> CONNECTION_ESTABLISHED\A> ENTERING_DIGITAL_REALM...';
+    position: absolute;
+    color: #00ff41;
+    font-size: 12px;
+    white-space: pre;
+    animation: terminalType 3s ease-out infinite;
+    opacity: 0.7;
+}
+
+.terminal-lines::before {
+    top: 20%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.terminal-lines::after {
+    bottom: 20%;
+    right: 5%;
+    animation-delay: 1.5s;
+    content: '> QUANTUM_SYNC_ACTIVE\A> PROCESSING_CONSCIOUSNESS...\A> DIGITAL_SELF_LOADING...\A> REALITY_MATRIX_ONLINE';
+}
+
+@keyframes terminalType {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    25% {
+        opacity: 0.7;
+        transform: translateX(0);
+    }
+    75% {
+        opacity: 0.7;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+/* Laser Grid */
+.laser-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, #ff0080 50%, #ff0080 51%, transparent 52%),
+        linear-gradient(0deg, transparent 49%, #00ffff 50%, #00ffff 51%, transparent 52%);
+    background-size: 100px 100px;
+    animation: laserScan 6s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes laserScan {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.1;
+    }
+    25% {
+        transform: translate(10px, 0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(10px, 10px);
+        opacity: 0.3;
+    }
+    75% {
+        transform: translate(0, 10px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.1;
+    }
+}
+
+/* Caring Effects */
+.caring-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 500;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.caring-effects.active {
+    opacity: 1;
+}
+
+.heart-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.heart-particles::before,
+.heart-particles::after {
+    content: '♥';
+    position: absolute;
+    font-size: 20px;
+    color: #ff6b9d;
+    animation: heartFloat 5s ease-in-out infinite;
+    text-shadow: 0 0 20px #ff6b9d;
+}
+
+.heart-particles::before {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.heart-particles::after {
+    top: 70%;
+    right: 20%;
+    animation-delay: 2.5s;
+    color: #ff9a9e;
+}
+
+@keyframes heartFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translateY(-20px) rotate(10deg) scale(1.1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg) scale(1.2);
+        opacity: 0.9;
+    }
+    75% {
+        transform: translateY(-15px) rotate(8deg) scale(1.1);
+        opacity: 1;
+    }
+}
+
+.healing-waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(255, 183, 197, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: healingPulse 3s ease-in-out infinite;
+}
+
+.healing-waves::before,
+.healing-waves::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid rgba(255, 183, 197, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.healing-waves::before {
+    width: 300px;
+    height: 300px;
+    animation: healingPulse 3s ease-in-out infinite 1s;
+}
+
+.healing-waves::after {
+    width: 400px;
+    height: 400px;
+    animation: healingPulse 3s ease-in-out infinite 2s;
+}
+
+@keyframes healingPulse {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+.nature-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 70%, rgba(152, 251, 152, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 182, 193, 0.1) 0%, transparent 50%);
+    animation: natureBreathe 4s ease-in-out infinite;
+}
+
+@keyframes natureBreathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+.warm-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(255, 183, 197, 0.1) 0%, 
+        transparent 30%, 
+        rgba(255, 218, 185, 0.1) 70%, 
+        transparent 100%);
+    animation: warmPulse 6s ease-in-out infinite;
+}
+
+@keyframes warmPulse {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    33% {
+        opacity: 0.5;
+    }
+    66% {
+        opacity: 0.3;
+    }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .main-title {
