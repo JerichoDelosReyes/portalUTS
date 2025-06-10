@@ -301,17 +301,80 @@ body {
     animation: slideUp 1s ease-out calc(0.9s + var(--delay, 0s)) both;
 }
 
+/* Digital Self Card - Blue Theme */
+.portal-card[data-target="digital-self"] {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(59, 130, 160, 0.95) 100%);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.4), 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.portal-card[data-target="digital-self"] h3 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.portal-card[data-target="digital-self"] p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.portal-card[data-target="digital-self"] .card-icon {
+    background: linear-gradient(135deg, #00ffff, #0080ff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 8px rgba(0, 255, 255, 0.3));
+}
+
+.portal-card[data-target="digital-self"]:hover .card-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 6px 12px rgba(0, 255, 255, 0.6));
+}
+
+.portal-card[data-target="digital-self"]:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.5), 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Managing and Caring Card - Green Theme */
+.portal-card[data-target="managing-caring"] {
+    background: linear-gradient(135deg, rgba(79, 179, 169, 0.95) 0%, rgba(93, 211, 158, 0.95) 100%);
+    border: 2px solid rgba(152, 251, 152, 0.3);
+    box-shadow: 0 10px 30px rgba(79, 179, 169, 0.4), 0 0 20px rgba(152, 251, 152, 0.2);
+}
+
+.portal-card[data-target="managing-caring"] h3 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(152, 251, 152, 0.5);
+}
+
+.portal-card[data-target="managing-caring"] p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.portal-card[data-target="managing-caring"] .card-icon {
+    background: linear-gradient(135deg, #98fb98, #5dd39e, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 8px rgba(152, 251, 152, 0.3));
+}
+
+.portal-card[data-target="managing-caring"]:hover .card-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 6px 12px rgba(152, 251, 152, 0.6));
+}
+
+.portal-card[data-target="managing-caring"]:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(79, 179, 169, 0.5), 0 0 30px rgba(152, 251, 152, 0.4);
+}
+
 .portal-card:nth-child(1) {
     --delay: 0s;
 }
 
 .portal-card:nth-child(2) {
     --delay: 0.2s;
-}
-
-.portal-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .portal-card.clicked {
@@ -351,17 +414,7 @@ body {
 .card-icon {
     font-size: 4.5rem;
     margin-bottom: 25px;
-    background: linear-gradient(135deg, #1e3a5f, #3b82a0, #5dd39e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 4px 8px rgba(30, 58, 95, 0.3));
     transition: all 0.3s ease;
-}
-
-.portal-card:hover .card-icon {
-    transform: scale(1.1);
-    filter: drop-shadow(0 6px 12px rgba(93, 211, 158, 0.4));
 }
 
 .portal-card h3 {
@@ -389,16 +442,26 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #4fb3a9, #5dd39e);
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 15px rgba(79, 179, 169, 0.3);
     letter-spacing: 0.5px;
 }
 
+/* Digital Self Card Status - Blue Theme */
+.portal-card[data-target="digital-self"] .card-status {
+    background: linear-gradient(135deg, #0080ff, #00ffff);
+    box-shadow: 0 4px 15px rgba(0, 128, 255, 0.4);
+}
+
+/* Managing and Caring Card Status - Green Theme */
+.portal-card[data-target="managing-caring"] .card-status {
+    background: linear-gradient(135deg, #4fb3a9, #5dd39e);
+    box-shadow: 0 4px 15px rgba(79, 179, 169, 0.4);
+}
+
 .card-status.coming-soon {
-    background: linear-gradient(135deg, #3b82a0, #2d5a87);
-    box-shadow: 0 4px 15px rgba(59, 130, 160, 0.3);
+    background: linear-gradient(135deg, #98fb98, #5dd39e) !important;
+    box-shadow: 0 4px 15px rgba(152, 251, 152, 0.4) !important;
 }
 
 /* Ripple effect */
