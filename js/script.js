@@ -644,3 +644,132 @@ document.addEventListener('mousemove', (e) => {
 
 // Add smooth scrolling for better UX
 document.documentElement.style.scrollBehavior = 'smooth';
+
+// Reset page state when user returns from external link
+window.addEventListener('pageshow', (e) => {
+    // Reset transition overlay
+    transitionOverlay.classList.remove('active');
+    
+    // Reset all card states
+    portalCards.forEach(card => {
+        card.classList.remove('clicked');
+        card.style.transform = 'translateY(0) scale(1)';
+    });
+    
+    // Clear any active effects
+    const digitalEffects = document.querySelector('.digital-effects');
+    const caringEffects = document.querySelector('.caring-effects');
+    
+    if (digitalEffects) {
+        digitalEffects.classList.remove('active');
+    }
+    
+    if (caringEffects) {
+        caringEffects.classList.remove('active');
+    }
+    
+    // Clean up any dynamic elements
+    cleanupDynamicElements();
+});
+
+// Clean up function for dynamic elements
+function cleanupDynamicElements() {
+    const dynamicSelectors = [
+        '.dynamic-binary',
+        '.digital-node', 
+        '.scan-line',
+        '.holographic-text',
+        '.network-connection',
+        '.dynamic-heart',
+        '.black-hole-vortex'
+    ];
+    
+    dynamicSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            if (element.parentNode) {
+                element.parentNode.removeChild(element);
+            }
+        });
+    });
+}
+
+// Handle page visibility changes to fix back button bug
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        // Reset transition state when user returns to the page
+        resetPortalState();
+    }
+});
+
+// Handle page focus to catch back button navigation
+window.addEventListener('focus', () => {
+    // Small delay to ensure page is fully loaded
+    setTimeout(() => {
+        resetPortalState();
+    }, 100);
+});
+
+// Handle browser back/forward navigation
+window.addEventListener('pageshow', (event) => {
+    // Reset state when page is shown (including back button)
+    resetPortalState();
+});
+
+// Reset portal to initial state
+function resetPortalState() {
+    // Hide transition overlay
+    if (transitionOverlay && transitionOverlay.classList.contains('active')) {
+        transitionOverlay.classList.remove('active');
+    }
+    
+    // Reset all card states
+    portalCards.forEach(card => {
+        card.classList.remove('clicked');
+        card.style.transform = '';
+    });
+    
+    // Clear any active effects
+    const digitalEffects = document.querySelector('.digital-effects');
+    const caringEffects = document.querySelector('.caring-effects');
+    
+    if (digitalEffects) {
+        digitalEffects.classList.remove('active');
+    }
+    
+    if (caringEffects) {
+        caringEffects.classList.remove('active');
+    }
+    
+    // Clean up any dynamic particles that might still be present
+    const digitalParticles = document.querySelector('.digital-particles');
+    const heartParticles = document.querySelector('.heart-particles');
+    
+    if (digitalParticles) {
+        // Remove any leftover dynamic elements
+        const dynamicElements = digitalParticles.querySelectorAll('.dynamic-binary, .digital-node, .scan-line, .holographic-text, .network-connection');
+        dynamicElements.forEach(element => {
+            if (digitalParticles.contains(element)) {
+                digitalParticles.removeChild(element);
+            }
+        });
+    }
+    
+    if (heartParticles) {
+        // Remove any leftover heart elements
+        const dynamicHearts = heartParticles.querySelectorAll('.dynamic-heart');
+        dynamicHearts.forEach(element => {
+            if (heartParticles.contains(element)) {
+                heartParticles.removeChild(element);
+            }
+        });
+    }
+    
+    // Remove any black hole vortex elements that might be stuck
+    const vortexElements = document.querySelectorAll('.black-hole-vortex');
+    vortexElements.forEach(vortex => {
+        if (document.body.contains(vortex)) {
+            document.body.removeChild(vortex);
+        }
+    });
+}
