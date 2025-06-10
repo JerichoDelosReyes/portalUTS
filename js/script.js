@@ -14,14 +14,6 @@ function handleCardClick(e) {
     const card = e.currentTarget;
     const target = card.dataset.target;
     
-    // Check if it's the "coming soon" card
-    if (card.querySelector('.card-status.coming-soon')) {
-        // Show caring effects for the coming soon card
-        showCaringEffects();
-        showComingSoonMessage();
-        return;
-    }
-    
     // Show themed effects based on target
     if (target === 'digital-self') {
         showDigitalEffects();
@@ -510,8 +502,8 @@ function navigateToProject(target) {
         // Navigate to the actual Digital Self project
         window.location.href = 'https://jerichodelosreyes.github.io/digiselfMain/';
     } else if (target === 'managing-caring') {
-        // Replace with actual Managing and Caring project URL when available
-        window.location.href = 'https://your-managing-caring-project-url.com';
+        // Navigate to the actual Managing and Caring project
+        window.location.href = 'https://mcfys.carrd.co/';
     }
 }
 

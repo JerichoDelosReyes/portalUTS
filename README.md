@@ -5,7 +5,7 @@ An interactive web portal for the "Understanding The Self" project by BSCS2E stu
 
 ### Project Navigation
 - **Digital Self**: Explore the complex relationship between technology and personal identity
-- **Managing and Caring for Yourself**: Self-care strategies (Coming Soon)
+- **Managing and Caring for Yourself**: Self-care strategies (Available)
 
 ## 🎯 Live Projects
 
@@ -15,7 +15,8 @@ An interactive web portal for the "Understanding The Self" project by BSCS2E stu
 - **Description**: Comprehensive research exploring how digital platforms shape our self-expression and identity
 
 ### Managing and Caring for Yourself
-- **Status**: 🚧 Coming Soon
+- **Status**: ✅ Available
+- **URL**: [https://mcfys.carrd.co/](https://mcfys.carrd.co/)
 - **Description**: Essential strategies for self-care and personal development
 
 **Created with ❤️ by BSCS2E Students**
