@@ -503,7 +503,8 @@ function navigateToProject(target) {
         window.location.href = 'https://jerichodelosreyes.github.io/digiselfMain/';
     } else if (target === 'managing-caring') {
         // Navigate to the actual Managing and Caring project
-        window.location.href = 'https://mcfys.carrd.co/';
+        //window.location.href = 'https://mcfys.carrd.co/';
+        window.location.href = 'https://cadlaxa.github.io/Managing-and-Caring-for-Yourself-Site/';
     }
 }
 
