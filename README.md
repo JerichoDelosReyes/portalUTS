@@ -1,7 +1,4 @@
 # Understanding The Self - Portal
-
-![Portal Logo](img/portalLogo.png)
-
 ## 🌟 Overview
 
 An interactive web portal for the "Understanding The Self" project by BSCS2E students from Cavite State University-Imus Campus. This portal serves as a gateway to explore comprehensive research projects that delve into the harmony between digital innovation and personal well-being.
