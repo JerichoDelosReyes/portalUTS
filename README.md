@@ -18,7 +18,8 @@ An interactive web portal for the "Understanding The Self" project by BSCS2E stu
 
 ### Managing and Caring for Yourself
 - **Status**: ✅ Available
-- **URL**: [https://mcfys.carrd.co/](https://mcfys.carrd.co/)
+- **URL**: `new`: [Managing-and-Caring-for-Yourself-Site](https://cadlaxa.github.io/Managing-and-Caring-for-Yourself-Site/)
+    - `old hosting site:` [https://mcfys.carrd.co/](https://mcfys.carrd.co/)
 - **Description**: Essential strategies for self-care and personal development
 
 **Created with ❤️ by BSCS2E Students**
